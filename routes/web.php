@@ -11,7 +11,12 @@
 |
 */
 
+use App\Moneda;
 use App\Sexo;
+//use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Route;
+//use Illuminate\Support\Facades\DB;
+
 /*
 Route::get('/', function () {
     return view('index');
@@ -20,6 +25,11 @@ Route::get('/', function () {
 
 Route::get("/","ProspectoController@index","prospecto.index");
 Route::post("/prospecto", "ProspectoController@store")->name("prospecto.store");
+
+// Rutas para la conversion
+Route::get("/conversiones", "ConversionController@index")->name("conversion.index");
+Route::get("/conversiones/{id}", "ConversionController@getId")->name("conversion.getId");
+
 // probando los datos
 Route::get("datos", function(){
     $sexos = Sexo::all();

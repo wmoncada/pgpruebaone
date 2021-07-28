@@ -55,5 +55,5 @@ class ProspectoController extends Controller
         return back();
     }
 
-
+    
 }

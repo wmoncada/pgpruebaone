@@ -14,7 +14,8 @@
                 <div class="container-fluid">
                   <span class="navbar-brand mb-0 h1">Navbar</span>
 
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <a class="nav-link active" aria-current="page" href="/">Prueba 1</a>
+                  <a class="nav-link active" aria-current="page" href="{{ url('conversion.index') }}">Prueba 2</a>
                 </div>
               </nav>
         </header>
