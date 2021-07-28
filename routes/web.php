@@ -12,11 +12,13 @@
 */
 
 use App\Sexo;
-
+/*
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+*/
 
+Route::get("/","ProspectoController@index","prospecto.index");
 // probando los datos
 Route::get("datos", function(){
     $sexos = Sexo::all();
