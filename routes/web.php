@@ -11,6 +11,16 @@
 |
 */
 
+use App\Sexo;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+// probando los datos
+Route::get("datos", function(){
+    $sexos = Sexo::all();
+
+    dd($sexos->toJson());
+
 });
