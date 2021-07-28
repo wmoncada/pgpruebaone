@@ -21,17 +21,7 @@ class ProspectoController extends Controller
         $sexos =  Sexo::all();
         $tiposPersona = TipoPersona::all();
 
-        return view("index",["sexos" => $sexos, "tiposPersona" => $tiposPersona]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view("index", ["sexos" => $sexos, "tiposPersona" => $tiposPersona]);
     }
 
     /**
@@ -42,51 +32,28 @@ class ProspectoController extends Controller
      */
     public function store(Request $request)
     {
+        // validaciones
+        $request->validate([
+            "nombres" => "required",
+            "apellidos" => "required",
+            "correo" => ["required", "email", "unique:pg_prospectos"],
+        ]);
         //
+        Prospecto::create([
+            "nombres" => $request->nombres,
+            "apellidos" => $request->apellidos,
+            "idsexo" => $request->idsexo,
+            "fechanacimiento" => $request->fechanacimiento,
+            "correo"=> $request->correo,
+            "telefono" => $request->telefono,
+            "idtipopersona" => $request->idtipopersona,
+            "nombrecomercial" => $request->nombrecomercial,
+            "website" => $request->website,
+            "mensaje" => $request->mensaje,
+        ]);
+
+        return back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Prospecto  $prospecto
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Prospecto $prospecto)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Prospecto  $prospecto
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Prospecto $prospecto)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Prospecto  $prospecto
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Prospecto $prospecto)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Prospecto  $prospecto
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Prospecto $prospecto)
-    {
-        //
-    }
 }

@@ -3,15 +3,23 @@
 @section('content')
 <h5>Registra tus datos</h5>
 
-<form action="">
+@if($errors->any())
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+            - {{ $error }} <br>
+        @endforeach
+    </div>
+@endif
+
+<form action="{{ route('prospecto.store') }}" method="POST">
     <div class="row">
         <div class="col">
             <label for="nombres" class="form-label">Nombres</label>
-            <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Juan Carlos">
+            <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Juan Carlos" required>
         </div>
         <div class="col">
             <label for="apellidos" class="form-label">Apellidos</label>
-            <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Perez Prado">
+            <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Perez Prado" required>
         </div>
     </div>
 
@@ -70,6 +78,7 @@
     <div class="row">
         <div class="col">
             <hr>
+            @csrf
             <input type="submit" value="Registrar" class="btn btn-primary">
         </div>
     </div>

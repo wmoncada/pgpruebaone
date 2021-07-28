@@ -19,6 +19,7 @@ Route::get('/', function () {
 */
 
 Route::get("/","ProspectoController@index","prospecto.index");
+Route::post("/prospecto", "ProspectoController@store")->name("prospecto.store");
 // probando los datos
 Route::get("datos", function(){
     $sexos = Sexo::all();
