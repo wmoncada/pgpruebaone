@@ -17,7 +17,7 @@
                 @foreach ($monedas as $moneda)
                 <tr>
                     <td>{{ $moneda->nombre }}</td>
-                    <td>{{ $moneda->simbolo }}</td>
+                    <td>{!! $moneda->simbolo !!}</td>
                     <td>{{ $moneda->valor_cambio }}</td>
                     <td>{{ $moneda->pais }}</td>
                     <td>

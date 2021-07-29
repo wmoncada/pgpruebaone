@@ -15,7 +15,7 @@
         <tr>
             <td>{{ $log->created_at }}</td>
             <td>{{ $log->nombre }}</td>
-            <td>{{ $log->simbolo }}</td>
+            <td>{!! $log->simbolo !!}</td>
             <td>{{ $log->pais }}</td>
             <td>{{ $log->valor_cambio  }}</td>
         </tr>
