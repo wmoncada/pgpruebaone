@@ -1,8 +1,7 @@
-@extends('layout.app')
+@extends('layout.app2')
 
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 
 <form id = "frm-conversion" action="javascript:void(0);">
     <div class="row">

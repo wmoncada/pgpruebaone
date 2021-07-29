@@ -29,6 +29,9 @@ Route::post("/prospecto", "ProspectoController@store")->name("prospecto.store");
 // Rutas para la conversion
 Route::get("/conversiones", "ConversionController@index")->name("conversion.index");
 Route::get("/conversiones/{id}", "ConversionController@getId")->name("conversion.getId");
+Route::get("/lista", "ConversionController@list")->name("conversion.list");
+Route::get("/conversiones/{id}/edit", "ConversionController@edit")->name("conversion.edit");
+Route::post("/conversiones","ConversionController@store")->name("conversion.store");
 
 // probando los datos
 Route::get("datos", function(){
