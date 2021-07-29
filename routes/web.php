@@ -32,6 +32,7 @@ Route::get("/conversiones/{id}", "ConversionController@getId")->name("conversion
 Route::get("/lista", "ConversionController@list")->name("conversion.list");
 Route::get("/conversiones/{id}/edit", "ConversionController@edit")->name("conversion.edit");
 Route::post("/conversiones","ConversionController@store")->name("conversion.store");
+Route::get("log/{id}","ConversionController@log")->name("conversion.log");
 
 // probando los datos
 Route::get("datos", function(){

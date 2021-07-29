@@ -54,6 +54,15 @@ class ConversionController extends Controller
         return back()->with('status', 'Datos Guardados con éxito');
     }
 
+    public function log($id)
+    {
+        $logs = MonedaLog::oldest()
+                    ->where("id_moneda","=",$id)
+                    ->get();
+
+        return view("log", ["logs" => $logs]);
+    }
+
     public function getId($id_moneda)
     {
         $moneda = DB::table('pg_moneda')

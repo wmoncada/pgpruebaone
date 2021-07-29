@@ -21,8 +21,12 @@
                     <td>{{ $moneda->valor_cambio }}</td>
                     <td>{{ $moneda->pais }}</td>
                     <td>
-                        <a href="{{ route('conversion.edit', $moneda->id_moneda) }}">
+                        <a href="{{ route('conversion.edit', $moneda->id_moneda) }}" >
                             Editar
+                        </a>
+                        |
+                        <a href="{{ route('conversion.log', $moneda->id_moneda) }}">
+                            Historial
                         </a>
                     </td>
                 </tr>
