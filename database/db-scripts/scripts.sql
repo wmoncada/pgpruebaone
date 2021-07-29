@@ -30,7 +30,21 @@ CREATE TABLE pg_prospectos
 ) ENGINE=InnoDB
 
 
--- DATOS 
+
+CREATE TABLE pg_moneda_log (
+  id bigint(20) UNSIGNED AUTO_INCREMENT primary KEY,
+  id_moneda int(11) NOT NULL ,
+  nombre varchar(45) DEFAULT NULL,
+  simbolo varchar(10) DEFAULT NULL,
+  valor_cambio varchar(45) DEFAULT NULL,
+  pais varchar(45) DEFAULT NULL,
+  created_at timestamp,
+  updated_at timestamp,
+  FOREIGN KEY (id_moneda) REFERENCES pg_moneda(id_moneda)
+)
+
+
+-- DATOS
 INSERT INTO `pg_sexo` (`id`, `nombre`) VALUES (NULL, 'Masculino'), (NULL, 'Femenino');
 
 INSERT INTO `pg_tipo_persona` (`id`, `nombre`) VALUES (NULL, 'Persona Natural');

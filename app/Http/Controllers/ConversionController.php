@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Moneda;
+use App\MonedaLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -36,9 +37,18 @@ class ConversionController extends Controller
                     ->where("id_moneda", $request->id_moneda)
                     ->update([
                         "simbolo" => $request->simbolo,
+                        "nombre" => $request->nombre,
                         "valor_cambio" => $request->valor_cambio,
                         "pais" => $request->pais,
                     ]);
+
+        MonedaLog::create([
+            "id_moneda" => $request->id_moneda,
+            "nombre" => $request->nombre,
+            "simbolo" => $request->simbolo,
+            "valor_cambio" => $request->valor_cambio,
+            "pais" => $request->pais,
+        ]);
 
 
         return back()->with('status', 'Datos Guardados con éxito');
